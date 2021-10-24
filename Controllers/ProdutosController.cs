@@ -18,7 +18,7 @@ namespace NetCoreWebAPI.Controllers
             return repositorio.GetAll();
         }
 
-        [HttpGet("id", Name = "GetProduto")]
+        [HttpGet("{id}", Name = "GetProduto")]
         public IActionResult GetProdutoPorId(int id)
         {
             Produto produto = repositorio.Get(id);
@@ -42,7 +42,7 @@ namespace NetCoreWebAPI.Controllers
             return CreatedAtRoute("GetProduto", new { id = produto.Id }, produto);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult AtualizaProduto (int id, [FromBody] Produto produto)
         {
             if (produto == null)
@@ -60,7 +60,7 @@ namespace NetCoreWebAPI.Controllers
             return new NoContentResult(); // 204
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeletaProduto(int id)
         {
             Produto produto = repositorio.Get(id);

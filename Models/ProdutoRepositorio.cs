@@ -60,6 +60,8 @@ namespace NetCoreWebAPI.Models
 
             produtos.RemoveAt(index);
             produtos.Add(produto);
+
+            return true;
         }
     }
 }
